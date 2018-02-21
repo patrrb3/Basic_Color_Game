@@ -1,5 +1,6 @@
 body {
-  background-color: #232323
+  background-color: white;
+  font-family: "Franklin Gothic Medium"
 }
 
 .square {
@@ -8,22 +9,60 @@ body {
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
+  border-radius: 10%;
+  transition: background 0.75s;
+  -webkit-transition: background 0.75s;
+  -moz-transition: background 0.75s;
 }
 
 
 #container {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 h1 {
   color: white;
+  text-align: center;
+  background: OrangeRed;
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.1;
+  padding: 20px 0
+
 }
 
+#messageDisplay {
+  display: inline-block;
+  width: 20%;
+}
 
 #stripe {
   background: white;
   height: 30px;
   text-align: center;
+}
+
+.selected {
+  color: white;
+  background: OrangeRed;
+}
+
+#colorDisplay {
+  font-size: 200%;
+}
+
+button {
+  background: none;
+  height: 100%;
+  font-weight: 700;
+  color: OrangeRed;
+  background-color: white;
+  font-family: "Franklin Gothic Medium";
+}
+
+button:hover {
+  color:white;
+  background: OrangeRed;
 
 }
