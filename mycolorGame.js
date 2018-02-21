@@ -6,6 +6,37 @@ colorDisplay.textContent = goalColor;
 var messageDisplay = document.querySelector("#messageDisplay");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
+var easyButton = document.querySelector("#easyButton");
+var hardButton = document.querySelector("#hardButton");
+
+easyButton.addEventListener("click", function(){
+  hardButton.classList.remove("selected");
+  easyButton.classList.add("selected");
+  colors = generateRandomColors(3);
+  goalColor = getColor();
+  colorDisplay.textContent = goalColor;
+  for (var i = 0; i < squares.length; i++) {
+      if(colors[i]){
+        squares[i].style.background = colors[i];
+      } else {
+        squares[i].style.display = "none";
+      }
+  }
+
+});
+
+hardButton.addEventListener("click", function(){
+  easyButton.classList.remove("selected");
+  hardButton.classList.add("selected");
+  colors = generateRandomColors(6);
+  goalColor = getColor();
+  colorDisplay.textContent = goalColor;
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].style.background = colors[i];
+    squares[i].style.display = "block";
+  }
+});
+
 
 resetButton.addEventListener("click", function(){
     colors = generateRandomColors(6);
@@ -14,8 +45,8 @@ resetButton.addEventListener("click", function(){
     for (var i = 0; i < squares.length; i++) {
       squares[i].style.backgroundColor = colors[i];
     }
-    h1.style.backgroundColor = "#232323"
-})
+    h1.style.backgroundColor = "white";
+});
 
 
 for (var i = 0; i < squares.length; i++) {
@@ -28,11 +59,12 @@ for (var i = 0; i < squares.length; i++) {
     if (clickedColor === goalColor) {
       messageDisplay.textContent = "Correct"
       changeColors(clickedColor);
-      h1.style.backgroundColor = clickedColor
+      h1.style.backgroundColor = clickedColor;
+        h1.style.textColor = "white";
       resetButton.textContent = "Try again?"
     } else{
 
-      this.style.background = "#232323";
+      this.style.background = "white";
       messageDisplay.textContent = "Try Again";
     }
   });
